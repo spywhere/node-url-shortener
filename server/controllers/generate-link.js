@@ -8,7 +8,7 @@ function generateAlias(characterSet, length) {
     ).join("");
 }
 
-module.exports = (request, response) => {
+module.exports = async(request) => {
     const {
         url, alias: requestedAlias
     } = request.body || {};
@@ -25,19 +25,23 @@ module.exports = (request, response) => {
                 config.characterSet
             }]+$`, "g").test(alias)
         ) {
-            response.status(400).json({
-                message: "Alias is not in a valid format"
-            });
-            return;
+            return {
+                status: 400,
+                body: {
+                    message: "Alias is not in a valid format"
+                }
+            };
         }
 
         if (alias.length < config.shortenMinimumLength) {
-            response.status(400).json({
-                message: `Alias is too short (minimum of ${
-                    config.shortenMinimumLength
-                })`
-            });
-            return;
+            return {
+                status: 400,
+                body: {
+                    message: `Alias is too short (minimum of ${
+                        config.shortenMinimumLength
+                    })`
+                }
+            };
         }
     }
 
@@ -49,12 +53,14 @@ module.exports = (request, response) => {
 
         if (requestedAlias && existingAlias) {
             // Alias collided, reject since it's a provided alias
-            response.status(400).json({
-                message: `Alias "${
-                    requestedAlias
-                }" is unavailable, please try another one.`
-            });
-            return;
+            return {
+                status: 400,
+                body: {
+                    message: `Alias "${
+                        requestedAlias
+                    }" is unavailable, please try another one.`
+                }
+            };
         } else if (existingAlias) {
             // Alias collided, regenerate a new one
             alias = generateAlias(
@@ -67,8 +73,11 @@ module.exports = (request, response) => {
         }
     }
 
-    response.status(201).json({
-        url,
-        alias
-    });
+    return {
+        status: 201,
+        body: {
+            url,
+            alias
+        }
+    };
 };
