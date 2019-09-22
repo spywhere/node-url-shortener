@@ -3,17 +3,20 @@
 ## Remarks
 For simplicity purpose, the following points are assumed...
 
-- A frontend (`client`) are provided solely for API ease of use, only a basic implementation,
-no framework are being used.
-- An API server (`server`) are implemented in a publicly accessible manner, refers to the
-security guidelines provided below, under `Documentation` section.
+- A frontend (`client`) are provided solely for API ease of use, only a basic
+implementation, no framework are being used.
+- An API server (`server`) are implemented in a publicly accessible manner,
+refers to the security guidelines provided below, under `Documentation`
+section.
+- Some part of the system are implemented with security in mind, however, a
+total security of the system are not guarantee in this project
 
 ## Setup
 
 ### Recommended
-The easiest and fastest way to get the applications up and running is by using Docker.
-Make sure Docker and Docker Compose has been installed on your computer, then
-run the following command...
+The easiest and fastest way to get the applications up and running is by using
+Docker. Make sure Docker and Docker Compose has been installed on your
+computer, then run the following command...
 
 ```
 $ docker-compose up
@@ -24,19 +27,27 @@ $ docker-compose up
 - MongoDB running on port 27017
 
 ### Manual Setup
-To get the applications running, you would need to install the following software...
+To get the applications running, you would need to install the following
+software...
 
-- Node.js (with `npm`)
+- Node.js v8+ (with `npm` and `npx`)
 - MongoDB
 
-Before running the applications, you would need to install all the dependencies by
-running the following command in each of the project directory (`client` and `server`)...
+Before running the applications, you would need to install all the
+dependencies by running the following command in the `server` directory...
 
 ```
 $ npm install
 ```
 
-To run the web application and API server, simply run...
+To run the web application, run the following command inside `client`
+directory...
+
+```
+$ npx http-server
+```
+
+To run the API server, run the following command inside `server` directory...
 
 ```
 $ npm start

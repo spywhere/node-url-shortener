@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    build:
+      context: ./client
+    image: shortener-web:latest
+    container_name: web
+    ports:
+      - 8080:80
+  api:
+    build:
+      context: ./server
+    image: shortener-api:latest
+    container_name: api
+    environment:
+      MONGODB_HOST: mongodb://mongo
+    ports:
+      - 3000:3000
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017
