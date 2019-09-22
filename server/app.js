@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyPaser = require("body-parser");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const logger = require("./common/logger");
 const http = require("./common/http");
@@ -11,6 +12,9 @@ const routes = require("./routes");
 const app = express();
 
 app.use(helmet());
+app.use(cors({
+    origin: true
+}));
 app.use(bodyPaser.json());
 
 app.use(routes());

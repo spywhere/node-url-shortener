@@ -20,6 +20,9 @@ module.exports = async(request) => {
 
     return {
         status: 200,
-        body: record
+        body: {
+            alias: record.alias,
+            url: record.url
+        }
     };
 };
