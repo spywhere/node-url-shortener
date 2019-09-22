@@ -1,4 +1,5 @@
 const config = require("../common/config")("app");
+const mongodb = require("../lib/mongodb");
 const validUrl = require("valid-url");
 
 function generateAlias(characterSet, length) {
@@ -59,7 +60,12 @@ module.exports = async(request) => {
     //   datasource
     while (true) {
         // Check for existing alias
-        const existingAlias = false;
+        const existingAlias = await mongodb.perform({
+            collection: "link",
+            findOne: {
+                alias
+            }
+        });
 
         if (requestedAlias && existingAlias) {
             // Alias collided, reject since it's a provided alias
@@ -82,6 +88,14 @@ module.exports = async(request) => {
             break;
         }
     }
+
+    await mongodb.perform({
+        collection: "link",
+        insertOne: {
+            url,
+            alias
+        }
+    });
 
     return {
         status: 201,

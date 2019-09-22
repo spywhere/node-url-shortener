@@ -12,6 +12,8 @@ section.
 total security of the system are not guarantee in this project
 - Alias collisions are check as simple as possible, no optimization is
 considered
+- A connection to another system are made as simple as possible, that is no
+connection handling, no error handling built-in for connection
 
 ## Setup
 
