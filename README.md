@@ -38,7 +38,8 @@ software...
 - MongoDB
 
 Before running the applications, you would need to install all the
-dependencies by running the following command in the `server` directory...
+dependencies by running the following command in both `client` and `server`
+directory...
 
 ```
 $ npm install
@@ -48,7 +49,7 @@ To run the web application, run the following command inside `client`
 directory...
 
 ```
-$ npx http-server
+$ npm start
 ```
 
 To run the API server, run the following command inside `server` directory...
@@ -68,13 +69,6 @@ Please check the following locations for any configuration needed...
 - `client/public/js/index.js`
 - `client/config/*`
 - `server/config/*`
-
-## Tests
-To run all unit tests, simply run...
-
-```
-$ npm test
-```
 
 ## Documentations
 

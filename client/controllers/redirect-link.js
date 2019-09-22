@@ -28,7 +28,6 @@ module.exports = (request, response) => {
         }
 
         response.redirect(body.url);
-        return;
     }).catch((error) => {
         response.status(
             http.code.serverError
@@ -36,6 +35,5 @@ module.exports = (request, response) => {
             error: error.name,
             message: error.message
         });
-        return;
     });
 };

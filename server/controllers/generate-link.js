@@ -58,6 +58,7 @@ module.exports = async(request) => {
 
     // This would take a lot of time if we have a lot of URLs stored in the
     //   datasource
+    // eslint-disable-next-line no-constant-condition
     while (true) {
         // Check for existing alias
         const existingAlias = await mongodb.perform({
@@ -92,14 +93,15 @@ module.exports = async(request) => {
                     }" is unavailable, please try another one.`
                 }
             };
-        } else if (existingAlias) {
+        }
+
+        if (existingAlias) {
             // Alias collided, regenerate a new one
             alias = generateAlias(
                 config.characterSet,
                 config.shortenMinimumLength
             );
         } else {
-            // Alias is available
             break;
         }
     }

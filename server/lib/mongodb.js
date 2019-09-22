@@ -23,13 +23,11 @@ function normalizeObject(object) {
 }
 
 async function executeQuery(collection, method, ...args) {
-    let queries = args;
+    const queries = args;
 
-    const result = await collection[method](
+    return collection[method](
         ...queries.map(normalizeObject)
     );
-
-    return result;
 }
 
 module.exports = {
