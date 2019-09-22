@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("./common/http");
 
 const generateLink = require("./controllers/generate-link");
+const expandLink = require("./controllers/expand-link");
 
 const promiseToMiddleware = (promise) => (request, response) => {
     promise(request).then((httpResponse) => {
@@ -26,7 +27,8 @@ const promiseToMiddleware = (promise) => (request, response) => {
 module.exports = () => {
     const router = express.Router();
 
-    router.post("/generate", promiseToMiddleware(generateLink));
+    router.post("/links", promiseToMiddleware(generateLink));
+    router.get("/links/:linkID", promiseToMiddleware(expandLink));
 
     return router;
 };
