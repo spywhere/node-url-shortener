@@ -67,6 +67,21 @@ module.exports = async(request) => {
             }
         });
 
+        // If alias and URL are matched, no need to generate a new one
+        if (
+            existingAlias &&
+            existingAlias.url === url &&
+            existingAlias.alias === alias
+        ) {
+            return {
+                status: 200,
+                body: {
+                    url,
+                    alias
+                }
+            };
+        }
+
         if (requestedAlias && existingAlias) {
             // Alias collided, reject since it's a provided alias
             return {
