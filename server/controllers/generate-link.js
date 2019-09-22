@@ -1,4 +1,5 @@
 const config = require("../common/config")("app");
+const validUrl = require("valid-url");
 
 function generateAlias(characterSet, length) {
     return new Array(length).fill(true).map(
@@ -12,6 +13,15 @@ module.exports = async(request) => {
     const {
         url, alias: requestedAlias
     } = request.body || {};
+
+    if (!validUrl.isUri(url)) {
+        return {
+            status: 400,
+            body: {
+                message: "URL is not in a valid format"
+            }
+        };
+    }
 
     let alias = requestedAlias || generateAlias(
         config.characterSet,
