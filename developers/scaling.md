@@ -17,3 +17,9 @@ or might not need to be changed, depends on the implementation as the
 connection could be differs once using a sharding or replication. An "ACID"
 operation might needed to be implemented in the system as well should any lag
 could be occured by the datasource synchronization.
+
+Another issue that could arise would be an alias collision, when there are a
+lot of URLs in the datasource, a number of available alias that can be used
+will be less, causing more collision to happens. This could be fix by having
+an expiration feature or increase a character set and length to generate an
+alias

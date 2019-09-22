@@ -10,6 +10,8 @@ refers to the security guidelines provided below, under `Documentation`
 section.
 - Some part of the system are implemented with security in mind, however, a
 total security of the system are not guarantee in this project
+- Alias collisions are check as simple as possible, no optimization is
+considered
 
 ## Setup
 
