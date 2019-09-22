@@ -61,6 +61,14 @@ Web application will start on port 8080 and
 API server will start on port 3000 by default
 with connection to MongoDB on port 27017
 
+## Configurations
+
+Please check the following locations for any configuration needed...
+
+- `client/public/js/index.js`
+- `client/config/*`
+- `server/config/*`
+
 ## Tests
 To run all unit tests, simply run...
 

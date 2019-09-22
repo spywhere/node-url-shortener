@@ -1,0 +1,23 @@
+{
+  "name": "shortener-web",
+  "version": "1.0.0",
+  "description": "A web application for URL Shortener",
+  "main": "app.js",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint ."
+  },
+  "author": "Sirisak Lueangsaksri",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.4",
+    "got": "^9.6.0",
+    "helmet": "^3.21.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.4",
+    "eslint": "^5.16.0"
+  }
+}

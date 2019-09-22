@@ -5,8 +5,10 @@ services:
       context: ./client
     image: shortener-web:latest
     container_name: web
+    environment:
+      API_HOST: http://api:3000
     ports:
-      - 8080:80
+      - 8080:8080
   api:
     build:
       context: ./server

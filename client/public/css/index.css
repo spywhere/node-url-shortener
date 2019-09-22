@@ -1,0 +1,37 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #222;
+    background: #eee;
+}
+
+p {
+    text-align: center;
+}
+
+.middle {
+    margin-top: 15%;
+}
+
+.title {
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 15pt;
+}
+
+.input {
+    border: none;
+    background: #fff;
+    font-size: 15pt;
+}
+
+.input#url {
+    background: #eee;
+    text-align: center;
+}
+
+.error {
+    color: #f66;
+}

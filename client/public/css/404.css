@@ -1,0 +1,18 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #222;
+    background: #eee;
+}
+
+.middle {
+    margin-top: 20%;
+}
+
+.title {
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 15pt;
+}

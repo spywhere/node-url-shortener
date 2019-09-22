@@ -1,4 +1,5 @@
 .DS_Store
 .dockerignore
 .vscode
+node_modules
 Dockerfile
